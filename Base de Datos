@@ -1,0 +1,74 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.9.2-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             11.3.0.6295
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Volcando estructura de base de datos para tiendacamisetasniv3c
+CREATE DATABASE IF NOT EXISTS `tiendacamisetasniv3c` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `tiendacamisetasniv3c`;
+
+-- Volcando estructura para tabla tiendacamisetasniv3c.categoria
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla tiendacamisetasniv3c.categoria: ~4 rows (aproximadamente)
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+REPLACE INTO `categoria` (`id`, `nombre`) VALUES
+	(1, 'Unicolor'),
+	(2, 'Clasica'),
+	(3, 'Deportiva'),
+	(4, 'Polo');
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
+
+-- Volcando estructura para tabla tiendacamisetasniv3c.productos
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `categoria_id` int(11) DEFAULT NULL,
+  `descripcion` varchar(150) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla tiendacamisetasniv3c.productos: ~5 rows (aproximadamente)
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+REPLACE INTO `productos` (`id`, `nombre`, `categoria_id`, `descripcion`, `precio`) VALUES
+	(1, 'Camiseta Roja', 1, 'Camiset en Algodon Comoda', 37000),
+	(3, 'Camiseta Seleccion Colombia', 3, 'Seleccion Colombia 2022', 220000),
+	(4, 'Polo Verde', 4, 'Camiseta con cuello y sesgo', 100000),
+	(5, 'Camiseta Azul', 2, 'Camiseta cuello en V, algodon y comoda', 32000),
+	(6, 'Alemania 2022', 3, 'Camiseta seleccion Alemana Mundial 2022', 250000);
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+
+-- Volcando estructura para tabla tiendacamisetasniv3c.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `contrasena` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla tiendacamisetasniv3c.usuarios: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+REPLACE INTO `usuarios` (`id`, `nombre`, `correo`, `contrasena`) VALUES
+	(1, 'admin', 'admin@correo.com', '12345');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
